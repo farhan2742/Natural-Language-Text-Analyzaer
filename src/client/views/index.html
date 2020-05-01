@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Text Analyzer</title>
+		<meta charset="utf-8" />
+		<meta name="description" content="Text analyzer using natural language processing (NLP) Developed by Farhan Kiyani powered by K-labs Web Development" />
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+	</head>
+	<body>
+		<head>
+			<div class="header__heading">
+				<h1>Text analyzer</h1>
+			</div>
+			<nav class="navbar__menu">
+		      <!-- Navigation starts as empty UL that will be populated with JS -->
+		      <ul id="navbar__list"
+		      ></ul>
+		    </nav>
+		</head>
+		<main>
+			<form onsubmit="return Client.handleSubmit(event)">
+				<fieldset>
+					<label for="title" class="form__label sr__only">
+						Title
+					</label>
+					<input type="text" name="title" id="title" placeholder="Please enter the title of text to analyze" />
+				</fieldset>
+				<fieldset class="form__text">
+					<label for="text" class="form__label sr__only">
+						Text
+					</label>
+					<textarea class="form__text" name="text" id="text" placeholder="Please enter the text to analyze"></textarea>
+				</fieldset>
+				<fieldset class="form__actions">
+					<label for="form__actions" class="form__label form__label-options">
+						Please select the types of analysis that you need to perform on the provided text.
+					</label>
+					<input type="checkbox" id="entity" name="entity" value="Entity Extraction" class="form__select">
+					<label class="form__label form__label-select">
+						Entity Extraction
+					</label>
+					<input type="checkbox" id="concept" name="concept" value="Concept Extraction" class="form__select">
+					<label class="form__label form__label__select">
+						Concept Extraction
+					</label>
+					<input type="checkbox" id="artical" name="artical" value="Artical Extraction" class="form__select">
+					<label class="form__label form__label__select">
+						Artical Extraction
+					</label>
+					<input type="checkbox" id="hashtag" name="hashtag" value="Hashtag Suggestion" class="form__select">
+					<label class="form__label form__label__select">
+						Hashtag Suggestion
+					</label>
+					<input type="checkbox" id="language" name="language" value="Language Detection" class="form__select">
+					<label class="form__label form__label__select">
+						Language Detection
+					</label>
+				</fieldset>
+				<fieldset class="form__buttons">
+					<button class="form__button form__button-reset" type="reset" name="reset" id="reset">Reset</button>
+					<button class="form__button form__button-submit" type="submit" name="submit" id="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">Submit</button>
+				</fieldset>
+			</form>
+		</main>
+		<section class="results">
+			<div class = "results__title">
+            	Analysis Result
+			</div>
+			<div id = "results__holder">
+			</div>
+		</section>
+		<footer class="footer">
+			<img src="imgs/logo.png" class="footer__logo" alt="logo">
+			<p class="footer__text">
+				<em>Developed</em> by <strong>Farhan Kiyani</strong>
+			</p>
+		</footer>
+		<script type="text/javascript" src="main.js"></script>
+        <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+        </script>
+	</body>
+</html>
