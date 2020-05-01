@@ -9,17 +9,88 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 	</head>
 	<body>
-		<head>
-			<div class="header__heading">
-				<h1>Text analyzer</h1>
+		<header>
+			<div class="header__main">
+				<img src="imgs/logo.png" alt="logo" class="header__main__logo" />
+				<h1 class="header__main__heading">
+					Text analyzer
+				</h1>
 			</div>
 			<nav class="navbar__menu">
 		      <!-- Navigation starts as empty UL that will be populated with JS -->
 		      <ul id="navbar__list"
 		      ></ul>
 		    </nav>
-		</head>
-		<main>
+		</header>
+		<section class="page__section">
+			<h2 class="section__heading">
+				Application desctiption
+			</h2>
+			<article class="article">
+				<h3 class="article__heading">
+					Application brief
+				</h3>
+				<p class="article__text">
+					This application analyzes the given text, image or URL using Aylien API.
+				</p>
+				<h3 class="article__heading">
+					Application functions
+				</h3>
+				<p class="article__text">
+					Following are the types of analysis that the applicaion perform on given data.
+				</p>
+				<dl class="article__descriptive">
+					<dt class="article__descriptive__item">
+						Entity Extraction
+					</dt>
+					<dd class="article__descriptive__description">
+						Documents often contain mentions of entities such as people, places, products and organizations, which we collectively call Named Entities. Additionally they may also contain specific values or items such as links, telephone numbers, email addresses, currency amounts and percentages. To extract these entities and values from a piece of text, as well as the keywords, you can use the Entity Extraction option.
+					</dd>
+					<dt class="article__descriptive__item">
+						Summarization
+					</dt>
+					<dd class="article__descriptive__description">
+						The Summarization option provides an easy way of summarizing a document such as a news article or blog post into a few key sentences. 
+					</dd>
+					<dt class="article__descriptive__item">
+						Article Extraction
+					</dt>
+					<dd class="article__descriptive__description">
+						If you are dealing with webpages and articles, chances are the text you'd like to analyze is surrounded by some 'clutter' such as site navigation or ads. In order to get accurate results in your text analysis, you might want to remove such clutter and extract the main text of the webpage or article. Article Extraction option allows you to do this.
+					</dd>
+					<dt class="article__descriptive__item">
+						Hashtag Suggestion
+					</dt>
+					<dd class="article__descriptive__description">
+						Hashtags have become a popular way of tagging content on Social Media, and attaching hashtags to a piece of content can dramatically increase its visibility on various Social Networking platforms such as Facebook, Twitter, Google+, Instagram and LinkedIn. Using Hashtag Suggestion option, you can automatically generate a list of highly-relevant hashtags that will help you get more exposure for your content on Social Media.
+					</dd>
+				</dl>
+				<h3 class="article__heading">
+					Using application
+				</h3>
+				<p class="article__text">
+					Following are the steps that you need to perform in order to use the application properly.
+				</p>
+				<ol class="article__ordered">
+					<li  class="article__ordered__item">
+						Give a title to the article that you want to be analyzed.
+					</li>
+					<li>
+						Provide the text of the article to be analysed or a URL to the artical or image.
+					</li>
+					<li>
+						Select the actions that you need to be performed on the given article
+					</li>
+					<li>
+						Press submit button
+					</li>
+				</ol>
+			</article>		
+		</section>
+		<main class="page__section">
+			<h2 class="section__heading">
+				Text submission form
+			</h2>
 			<form onsubmit="return Client.handleSubmit(event)">
 				<fieldset>
 					<label for="title" class="form__label sr__only">
@@ -41,9 +112,9 @@
 					<label class="form__label form__label-select">
 						Entity Extraction
 					</label>
-					<input type="checkbox" id="concept" name="concept" value="Concept Extraction" class="form__select">
+					<input type="checkbox" id="summery" name="summery" value="Summarization" class="form__select">
 					<label class="form__label form__label__select">
-						Concept Extraction
+						Summarization
 					</label>
 					<input type="checkbox" id="artical" name="artical" value="Artical Extraction" class="form__select">
 					<label class="form__label form__label__select">
@@ -53,10 +124,6 @@
 					<label class="form__label form__label__select">
 						Hashtag Suggestion
 					</label>
-					<input type="checkbox" id="language" name="language" value="Language Detection" class="form__select">
-					<label class="form__label form__label__select">
-						Language Detection
-					</label>
 				</fieldset>
 				<fieldset class="form__buttons">
 					<button class="form__button form__button-reset" type="reset" name="reset" id="reset">Reset</button>
@@ -64,9 +131,11 @@
 				</fieldset>
 			</form>
 		</main>
-		<section class="results">
+		<section class="page__section results">
 			<div class = "results__title">
-            	Analysis Result
+            	<h2 class="section__heading">
+            		Analysis Result
+            	</h2>
 			</div>
 			<div id = "results__holder">
 			</div>
