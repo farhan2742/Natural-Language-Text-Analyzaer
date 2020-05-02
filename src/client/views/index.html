@@ -5,73 +5,73 @@
 		<meta charset="utf-8" />
 		<meta name="description" content="Text analyzer using natural language processing (NLP) Developed by Farhan Kiyani powered by K-labs Web Development" />
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 	</head>
-	<body>
-		<header>
-			<div class="header__main">
-				<img src="imgs/logo.png" alt="logo" class="header__main__logo" />
-				<h1 class="header__main__heading">
-					Text analyzer
+	<body class="container">
+		<header class="header navbar fixed-top navbar-expand-lg navbar-light bg-light" id="page__header">
+			<div class="header__main media navbar-brand">
+				<img src="imgs/logo.png" alt="logo" class="header__main__logo mr-3 align-self-center" id="logo" />
+				<h1 class="header__main__heading media-heading">
+					Get your text analyzed
 				</h1>
 			</div>
-			<nav class="navbar__menu">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			    <span class="navbar-toggler-icon"></span>
+			</button>
+			<nav class="navbar__menu collapse navbar-collapse" id="navbarNav">
 		      <!-- Navigation starts as empty UL that will be populated with JS -->
-		      <ul id="navbar__list"
-		      ></ul>
+		      <ul id="navbar__list" class="navbar-nav"></ul>
 		    </nav>
 		</header>
-		<section class="page__section">
-			<h2 class="section__heading">
-				Application desctiption
-			</h2>
+
+		<section class="page__section" data-nav="Application desctiption" id="desctiption">
 			<article class="article">
-				<h3 class="article__heading">
-					Application brief
-				</h3>
-				<p class="article__text">
+				<h2 class="article__heading bg-dark text-light">
+					Application desctiption
+				</h2>
+				<p class="article__text bg-light text-dark">
 					This application analyzes the given text, image or URL using Aylien API.
 				</p>
-				<h3 class="article__heading">
+				<h3 class="article__heading bg-dark text-light">
 					Application functions
 				</h3>
-				<p class="article__text">
+				<p class="article__text bg-light text-dark">
 					Following are the types of analysis that the applicaion perform on given data.
 				</p>
 				<dl class="article__descriptive">
-					<dt class="article__descriptive__item">
+					<dt class="article__descriptive__item bg-dark text-light">
 						Entity Extraction
 					</dt>
-					<dd class="article__descriptive__description">
+					<dd class="article__descriptive__description bg-light text-dark">
 						Documents often contain mentions of entities such as people, places, products and organizations, which we collectively call Named Entities. Additionally they may also contain specific values or items such as links, telephone numbers, email addresses, currency amounts and percentages. To extract these entities and values from a piece of text, as well as the keywords, you can use the Entity Extraction option.
 					</dd>
-					<dt class="article__descriptive__item">
+					<dt class="article__descriptive__item bg-dark text-light">
 						Summarization
 					</dt>
-					<dd class="article__descriptive__description">
+					<dd class="article__descriptive__description bg-light text-dark">
 						The Summarization option provides an easy way of summarizing a document such as a news article or blog post into a few key sentences. 
 					</dd>
-					<dt class="article__descriptive__item">
+					<dt class="article__descriptive__item bg-dark text-light">
 						Article Extraction
 					</dt>
-					<dd class="article__descriptive__description">
+					<dd class="article__descriptive__description bg-light text-dark">
 						If you are dealing with webpages and articles, chances are the text you'd like to analyze is surrounded by some 'clutter' such as site navigation or ads. In order to get accurate results in your text analysis, you might want to remove such clutter and extract the main text of the webpage or article. Article Extraction option allows you to do this.
 					</dd>
-					<dt class="article__descriptive__item">
+					<dt class="article__descriptive__item bg-dark text-light">
 						Hashtag Suggestion
 					</dt>
-					<dd class="article__descriptive__description">
+					<dd class="article__descriptive__description bg-light text-dark">
 						Hashtags have become a popular way of tagging content on Social Media, and attaching hashtags to a piece of content can dramatically increase its visibility on various Social Networking platforms such as Facebook, Twitter, Google+, Instagram and LinkedIn. Using Hashtag Suggestion option, you can automatically generate a list of highly-relevant hashtags that will help you get more exposure for your content on Social Media.
 					</dd>
 				</dl>
-				<h3 class="article__heading">
+				<h3 class="article__heading bg-dark text-light">
 					Using application
 				</h3>
-				<p class="article__text">
+				<p class="article__text bg-light text-dark">
 					Following are the steps that you need to perform in order to use the application properly.
 				</p>
-				<ol class="article__ordered">
+				<ol class="article__ordered bg-light text-dark">
 					<li  class="article__ordered__item">
 						Give a title to the article that you want to be analyzed.
 					</li>
@@ -87,53 +87,63 @@
 				</ol>
 			</article>		
 		</section>
-		<main class="page__section">
-			<h2 class="section__heading">
+		<main class="page__section" data-nav="Text submission form" id="form">
+			<h2 class="section__heading bg-dark text-light">
 				Text submission form
 			</h2>
-			<form onsubmit="return Client.handleSubmit(event)">
-				<fieldset>
-					<label for="title" class="form__label sr__only">
+			<form class="needs-validation" id="form">
+				<fieldset class="form-group">
+					<label for="title" class="form__label">
 						Title
 					</label>
-					<input type="text" name="title" id="title" placeholder="Please enter the title of text to analyze" />
+					<input type="text" name="title" id="title" placeholder="Please enter the title of text to analyze" class="form-control check__validation" required/>
 				</fieldset>
-				<fieldset class="form__text">
-					<label for="text" class="form__label sr__only">
+				<fieldset class="form__text form-group ">
+					<label for="text" class="form__label">
 						Text
 					</label>
-					<textarea class="form__text" name="text" id="text" placeholder="Please enter the text to analyze"></textarea>
+					<textarea class="form__text form-control check__validation" rows="13" name="text" id="text" placeholder="Please enter the text to analyze" required></textarea>
 				</fieldset>
-				<fieldset class="form__actions">
-					<label for="form__actions" class="form__label form__label-options">
-						Please select the types of analysis that you need to perform on the provided text.
-					</label>
-					<input type="checkbox" id="entity" name="entity" value="Entity Extraction" class="form__select">
-					<label class="form__label form__label-select">
-						Entity Extraction
-					</label>
-					<input type="checkbox" id="summery" name="summery" value="Summarization" class="form__select">
-					<label class="form__label form__label__select">
-						Summarization
-					</label>
-					<input type="checkbox" id="artical" name="artical" value="Artical Extraction" class="form__select">
-					<label class="form__label form__label__select">
-						Artical Extraction
-					</label>
-					<input type="checkbox" id="hashtag" name="hashtag" value="Hashtag Suggestion" class="form__select">
-					<label class="form__label form__label__select">
-						Hashtag Suggestion
-					</label>
+				<fieldset class="form__actions form-group">
+					<div class="form-group">
+						<label for="form__actions" class="form__label form__label-options">
+							Please select the types of analysis that you need to perform on the provided text.
+						</label>
+					</div>
+					<div class="form-check form__actions__check">
+						<input type="checkbox" id="entity" name="entity" value="Entity Extraction" class="form__select form-check-input">
+						<label class="form__label form__label-select form-check-label">
+							Entity Extraction
+						</label>
+					</div>
+					<div class="form-check">
+						<input type="checkbox" id="summery" name="summery" value="Summarization" class="form__select form-check-input">
+						<label class="form__label form__label__select form-check-label">
+							Summarization
+						</label>
+					</div>
+					<div class="form-check">
+						<input type="checkbox" id="artical" name="artical" value="Artical Extraction" class="form__select form-check-input">
+						<label class="form__label form__label__select form-check-label">
+							Artical Extraction
+						</label>
+					</div>
+					<div class="form-check">
+						<input type="checkbox" id="hashtag" name="hashtag" value="Hashtag Suggestion" class="form__select form-check-input">
+						<label class="form__label form__label__select form-check-label">
+							Hashtag Suggestion
+						</label>
+					</div>	
 				</fieldset>
-				<fieldset class="form__buttons">
-					<button class="form__button form__button-reset" type="reset" name="reset" id="reset">Reset</button>
-					<button class="form__button form__button-submit" type="submit" name="submit" id="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">Submit</button>
-				</fieldset>
+				<div class="form__buttons form-group">
+					<button class="form__button form__button-reset btn btn-danger" type="reset" name="reset" id="reset">Reset</button>
+					<button class="form__button form__button-submit btn btn-primary" type="submit" name="submit" id="submit">Submit</button>
+				</div>
 			</form>
 		</main>
-		<section class="page__section results">
+		<section class="page__section results" data-nav="Analysis Result" id="results">
 			<div class = "results__title">
-            	<h2 class="section__heading">
+            	<h2 class="section__heading bg-dark text-light">
             		Analysis Result
             	</h2>
 			</div>
@@ -141,12 +151,13 @@
 			</div>
 		</section>
 		<footer class="footer">
-			<img src="imgs/logo.png" class="footer__logo" alt="logo">
-			<p class="footer__text">
-				<em>Developed</em> by <strong>Farhan Kiyani</strong>
-			</p>
+			<div class="">
+				<img src="./imgs/logo.png" class="footer__logo" alt="logo">
+				<span class="footer__text">
+					<em>Developed</em> by <strong>Farhan Kiyani</strong>
+				</span>
+			</div>
 		</footer>
-		<script type="text/javascript" src="main.js"></script>
         <script>
             // Check that service workers are supported
             if ('serviceWorker' in navigator) {
