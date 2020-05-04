@@ -4,6 +4,7 @@ let projectData = {};
 let path = require('path')
 let aylien = require("aylien_textapi");
 const express = require('express')
+const serverless = require('serverless-http');
 
 const app = express()
 let textapi = new aylien({
@@ -138,7 +139,21 @@ function sendInfo(req, res) {
 	res.send(projectData);
 }
 
+http.createServer(function(req, res) {
+  // Homepage
+	if (req.url === "/") {
+		res.writeHead(200, { "Content-Type": "text/html" });
+		res.end("Welcome to the App");
+	} else {
+	    res.writeHead(404, { "Content-Type": "text/plain" });
+	    res.end("404 error! File not found.");
+	}
+}).listen(1337, "localhost");
+
 // designates what port the app will listen to for incoming requests
+/*
 app.listen(3000, function () {
     console.log('Example app listening on port 3000!')
 });
+*/
+module.exports.handler = serverless(app);
