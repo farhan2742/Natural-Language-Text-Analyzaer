@@ -1,38 +1,59 @@
 import {handleSubmit} from './js/formHandler';
-import { getWeatherData} from './js/getWeather';
 import { postData } from './js/postData';
 import { updateUI } from './js/updateUI';
-import { generateWeather } from './js/genWeather';
-import { buildMenu } from './js/buildMenu'
-import { notScrolling } from './js/notScrolling'
+import { buildMenu } from './js/buildMenu';
+import { notScrolling } from './js/notScrolling';
+import { articleExtract } from './js/articleExtract';
+import { entityExtract } from './js/entityExtract';
+import { hashtagExtract } from './js/hashtagExtract';
+import { summaryExtract } from './js/summeryExtract';
+import { allowedFormOptions } from './js/formOptions'
+import { disableUrl, disableText } from './js/disableFormInputs'
 
-import './styles/styles.scss'
-//import $ from 'jquery';
-//import 'jquery/dist/jquery.slim.min.js'
-//import 'popper.js/dist/popper.min.js';
-//import 'bootstrap/dist/js/bootstrap.min.js';
-import 'bootstrap';
+
+import $ from 'jquery';
+import 'bootstrap/dist/js/bootstrap.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/styles.scss'
+
 
 import logo from './imgs/logo.png'
 
 
 export {
-	handleSubmit,
-	getWeatherData,
 	postData,
 	updateUI,
-	generateWeather,
-	buildMenu
+	articleExtract,
+	entityExtract,
+	hashtagExtract,
+	summaryExtract,
+	allowedFormOptions
 }
 
 function run(){
+	const formOptions = document.querySelector("#form__actions");
+	const formText = document.querySelector("#text");
+	const formURL = document.querySelector("#url");
+	const formTitle = document.querySelector("#title");
 
-	$("#page__header").resize(function () {
-        $('#godown').height($("#page__header").height() + 10);
-    });
 
-    if ($("#page__header").height() > $('#godown').height()) $('#godown').height($("#page__header").height() + 10);
+	formText.addEventListener('change', function () {
+		disableUrl();
+	});
+
+	formTitle.addEventListener('change', function () {
+		disableUrl();
+	});
+
+	formURL.addEventListener('change', function () {
+		disableText();
+	});
+
+
+	formOptions.addEventListener('change', function () {
+		allowedFormOptions();
+		
+	});
 
 	const navList = document.querySelector("#navbar__list");
 
@@ -77,12 +98,14 @@ function run(){
 			formValidation[i].reportValidity();
 			if (formValidation[i].checkValidity() === false) {
 				formValid = false;
-			}
-			if (formValid === true) {
-				event.preventDefault();
-				handleSubmit();
+				formValidation[i].classList.add("is-invalid");
 			}
 		}	
+		if (formValid === true) {
+			event.preventDefault();
+			handleSubmit();
+		}
+
 	});
 
 document.addEventListener("DOMContentLoaded",run());
