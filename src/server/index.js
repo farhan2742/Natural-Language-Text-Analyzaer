@@ -28,16 +28,106 @@ app.get('/', function (req, res) {
 
 // Post routes
 
-const data = [];
+app.post("/extractSummeryUrl", extractSummeryUrl)
 
-app.post("/addData", addData)
+function extractSummeryUrl(req, res) {
+	textapi.summarize({
+		url: req.body.url,
+		sentences_number: 5
+	}, 
+	function(error, response) {
+		if (error === null) { 
+    		projectData.extractedSummary = response;
+    		res.send(projectData)
+  		}   
+    });
+}
 
-function addData(req, res) {
-	projectData['date'] = req.body.date;
-	projectData['temp'] = req.body.temp;
-	projectData['comments'] = req.body.comments;
+app.post("/extractSummaryText", extractSummaryText)
 
-	res.send(projectData);
+function extractSummaryText(req, res) {
+	console.log(req.body.heading);
+	textapi.summarize({
+		title: req.body.heading,
+		text: req.body.text,
+		sentences_number: 5
+	}, 
+	function(error, response) {
+		if (error === null) { 
+    		projectData.extractedSummary = response;
+    		console.log(response)
+    		res.send(projectData)
+  		}   
+    });
+}
+
+app.post('/extractHashtagUrl', extractHashtagUrl)
+
+function extractHashtagUrl(req, res) {
+	textapi.hashtags({
+		url: req.body.url
+	}, 
+	function(error, response) {
+		if (error === null) {
+    		projectData.extractedHashtags = response;
+    		res.send(projectData)
+  		}   
+    });
+}
+
+
+app.post('/extractHashtagText', extractHashtagText)
+
+function extractHashtagText(req, res) {
+	textapi.hashtags({
+		text: req.body.text
+	}, 
+	function(error, response) {
+		if (error === null) {
+    		projectData.extractedHashtags = response;
+    		res.send(projectData)
+  		}   
+    });
+}
+
+
+app.post('/extractArticle', extractArticle)
+
+function extractArticle(req, res) {
+	textapi.extract({
+		url: req.body.url,
+ 		best_image: false
+	}, 
+	function(error, response) {
+		if (error === null) {
+    		projectData.extractedArticle = response;
+    		res.send(projectData)
+  		}   
+    });
+}
+
+app.post('/extractEntityUrl', extractEntityUrl)
+
+function extractEntityUrl(req, res) {
+	textapi.entities({
+		url: req.body.url
+	}, 
+	function(error, response) {
+		projectData.extractedEntities = response;
+        res.send(projectData)
+    });
+}
+
+app.post('/extractEntityText', extractEntityText)
+
+function extractEntityText(req, res) {
+	textapi.entities({
+		text: req.body.text
+	}, 
+	function(error, response) {
+		projectData.extractedEntities = response;
+        res.send(projectData)
+    });
 }
 
 // Get routes
@@ -49,6 +139,6 @@ function sendInfo(req, res) {
 }
 
 // designates what port the app will listen to for incoming requests
-app.listen(8081, function () {
-    console.log('Example app listening on port 8081!')
+app.listen(3000, function () {
+    console.log('Example app listening on port 3000!')
 });
