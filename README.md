@@ -1,4 +1,4 @@
-# Natural-Language-Text-Analyzaer
+# Natural-Language-Text-Analyzer
 This is a web app that uses Aylien API to analyze text and provide feedback.
 
 ## Getting Started
