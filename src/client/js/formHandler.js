@@ -1,8 +1,21 @@
-function handleSubmit(event) {
-    window.alert('clicked');
-    
-
-    // check what text was put into the form field
-   // Client.generateWeather();
+function handleSubmit() {
+	const formAction = document.getElementById('form__actions').value;
+	switch(formAction) {
+    	case "entity":
+    		Client.entityExtract();
+    		break;
+    	case "summarization":
+    		Client.summaryExtract();
+    		break;
+    	case "article":
+    		Client.articleExtract();
+    		break;
+    	case "hashtag":
+    		Client.hashtagExtract();
+    		break;
+    	default:
+    		window.alert("no action selected");
+    		break;
+	}
 }
  export {handleSubmit}

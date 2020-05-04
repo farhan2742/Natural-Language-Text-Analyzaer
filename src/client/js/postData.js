@@ -1,4 +1,5 @@
 const postData = async (url = '', data={}) => {
+	console.log(data)
 	const req = await fetch(url, {
 		method: 'POST',
 		credentials: 'same-origin',
@@ -6,9 +7,9 @@ const postData = async (url = '', data={}) => {
 			'Content-Type': 'application/json;charset=UTF-8'
 		},
 		body: JSON.stringify({
-			date: data.date,
-			temp: data.temp,
-			comments: data.comments
+			heading: data.heading,
+			text: data.text,
+			url: data.url
 		})
 	});
 
