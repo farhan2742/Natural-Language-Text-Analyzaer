@@ -9,12 +9,18 @@ const precss = require('precss');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 
+
+
 module.exports = {
+    node: {
+        fs: 'empty'
+    },
 	output: {
 		libraryTarget: 'var',
 		library: 'Client'
 	},
 	mode: 'development',
+    devtool: 'source-map',
 	entry: './src/client/index.js',
 	module: {
         rules: [
@@ -99,7 +105,7 @@ module.exports = {
         new BundleAnalyzerPlugin({
         	analyzerMode: 'server',
         	analyzerPort: 'auto',
-        	openAnalyzer: false,
+        	openAnalyzer: true,
         	generateStatsFile: true,
         }),
         new webpack.HotModuleReplacementPlugin(),

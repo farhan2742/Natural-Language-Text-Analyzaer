@@ -11,6 +11,9 @@ const WorkboxPlugin = require('workbox-webpack-plugin');
 
 
 module.exports = {
+	node: {
+        fs: 'empty'
+    },
 	output: {
 		libraryTarget: 'var',
 		library: 'Client'
