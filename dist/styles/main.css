@@ -1,0 +1,40 @@
+.form__buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end; }
+  .form__buttons .form__button {
+    padding-left: 10px;
+    margin-left: 10px; }
+
+.form__actions__check {
+  padding-left: 50px; }
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; }
+  .footer .footer__logo {
+    max-width: 50px;
+    max-height: auto; }
+  .footer .footer__text {
+    text-decoration: underline; }
+
+.header .header__main .header__main__logo {
+  width: 60px;
+  height: 60px; }
+
+.header .header__main .header__main__heading {
+  font-size: 1.5em; }
+
+body {
+  padding-top: 100px; }
+  body .page__section .section__heading {
+    padding: 5px; }
+  body .page__section .article .article__heading {
+    padding: 5px; }
+  body .page__section .article .article__descriptive .article__descriptive__item {
+    padding: 5px; }
+  body #godown {
+    height: 100px; }
