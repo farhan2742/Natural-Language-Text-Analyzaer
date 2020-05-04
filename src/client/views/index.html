@@ -13,7 +13,7 @@
 			<div class="header__main media navbar-brand">
 				<img src="imgs/logo.png" alt="logo" class="header__main__logo mr-3 align-self-center" id="logo" />
 				<h1 class="header__main__heading media-heading">
-					Get your text analyzed
+					Text Processor
 				</h1>
 			</div>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -92,48 +92,44 @@
 				Text submission form
 			</h2>
 			<form class="needs-validation" id="form">
-				<fieldset class="form-group">
+				<fieldset id="form__url" class="form-group">
+					<label for="url" class="form__label">
+						URL
+					</label>
+					<input type="url" name="url" id="url" placeholder="Please enter the link of the data that you want analyzed" class="form-control check__validation" 
+					pattern="^(http(s)?:\/\/)+[\w\-\._~:\/?#[\]@!\$&'\(\)\*\+,;=.]+$" required>
+					<div class="valid-feedback">Looks good!</div>
+					<div class="invalid-feedback">Please enter a valid URL.</div>
+					<small id="urlHelp" class="form-text text-danger">If you want to provide the URL please ignore below fields.</small>
+				</fieldset>
+				<fieldset id="form__title" class="form-group d-none">
 					<label for="title" class="form__label">
 						Title
 					</label>
-					<input type="text" name="title" id="title" placeholder="Please enter the title of text to analyze" class="form-control check__validation" required/>
+					<input type="text" name="title" id="title" placeholder="Please enter the title of text to analyze" class="form-control check__validation"/>
+					<div class="valid-feedback">Looks good!</div>
+					<div class="invalid-feedback">You need to enter a title in order to summarize the text.</div>
+					<small id="titleHelp" class="form-text text-danger">If you want to wrtie the article please dont enter a URL in the field above.</small>
 				</fieldset>
-				<fieldset class="form__text form-group ">
+				<fieldset id="form__text" class="form__text form-group">
 					<label for="text" class="form__label">
 						Text
 					</label>
 					<textarea class="form__text form-control check__validation" rows="13" name="text" id="text" placeholder="Please enter the text to analyze" required></textarea>
+					<div class="valid-feedback">Looks good!</div>
+					<div class="invalid-feedback">You need to enter some text to analyze or you can give a URL above.</div>
+					<small id="titleHelp" class="form-text text-danger">If you want to summerize the article please make to write a title.</small>
 				</fieldset>
 				<fieldset class="form__actions form-group">
-					<div class="form-group">
-						<label for="form__actions" class="form__label form__label-options">
-							Please select the types of analysis that you need to perform on the provided text.
-						</label>
-					</div>
-					<div class="form-check form__actions__check">
-						<input type="checkbox" id="entity" name="entity" value="Entity Extraction" class="form__select form-check-input">
-						<label class="form__label form__label-select form-check-label">
-							Entity Extraction
-						</label>
-					</div>
-					<div class="form-check">
-						<input type="checkbox" id="summery" name="summery" value="Summarization" class="form__select form-check-input">
-						<label class="form__label form__label__select form-check-label">
-							Summarization
-						</label>
-					</div>
-					<div class="form-check">
-						<input type="checkbox" id="artical" name="artical" value="Artical Extraction" class="form__select form-check-input">
-						<label class="form__label form__label__select form-check-label">
-							Artical Extraction
-						</label>
-					</div>
-					<div class="form-check">
-						<input type="checkbox" id="hashtag" name="hashtag" value="Hashtag Suggestion" class="form__select form-check-input">
-						<label class="form__label form__label__select form-check-label">
-							Hashtag Suggestion
-						</label>
-					</div>	
+					<label for="form__actions" class="form__label form__label-options">
+						Please select the types of analysis that you need to perform on the provided text.
+					</label>
+					<select id="form__actions" class="form__select form-control">
+						<option value="entity">Entity Extraction</option>
+						<option value="summarization">Summarization</option>
+						<option value="article">Article Extraction</option>
+						<option value="hashtag">Hashtag Suggestion</option>
+					</select>
 				</fieldset>
 				<div class="form__buttons form-group">
 					<button class="form__button form__button-reset btn btn-danger" type="reset" name="reset" id="reset">Reset</button>
