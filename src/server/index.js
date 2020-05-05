@@ -139,6 +139,9 @@ function sendInfo(req, res) {
 }
 
 // designates what port the app will listen to for incoming requests
+app.listen(process.env.PORT, process.env.PORT);
+/*
 app.listen(3000, function () {
     console.log('Example app listening on port 3000!')
 });
+*/
