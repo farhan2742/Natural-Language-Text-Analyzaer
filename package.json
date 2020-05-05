@@ -1,15 +1,15 @@
 {
-  "name": "Text Analyzer",
+  "name": "Text_Analyzer",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "start": "node src/server/index.js",
     "build": "webpack --config webpack.config.js"
   },
-  "keywords": ["NLP","Natural Language Processor","Natural Language Processing", "Text Analyzer", "Text Processor", "Aylien API"],
-  "author": "Farhan Kiyani",
+  "keywords": ["NLP","Natural", "Language", "Processor","Processing", "Text-Analyzer", "Text-Processor", "Aylien_API"],
+  "author": "Farhan_Kiyani",
   "license": "ISC",
-  "description": "This application analyzes the given text or URL using Aylien API.",
+  "description": "This_application_analyzes_the_given_text_or_URL_using_Aylien_API.",
   "dependencies": {
     "autoprefixer": "^9.7.6",
     "aylien_textapi": "^0.7.0",
