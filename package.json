@@ -10,7 +10,7 @@
     "build-dev": "webpack --config webpack.dev.js"
   },
   "keywords": ["NLP","Natural", "Language", "Processor","Processing", "Text-Analyzer", "Text-Processor", "Aylien_API"],
-  "author": "Farhan Kiyani",
+  "author": "Farhan_Kiyani",
   "license": "ISC",
   "description": "This_application_analyzes_the_given_text_or_URL_using_Aylien_API.",
   "dependencies": {
