@@ -138,7 +138,14 @@ function sendInfo(req, res) {
 	res.send(projectData);
 }
 
-// designates what port the app will listen to for incoming requests
+//DEV
 
-app.listen(process.env.PORT, process.env.IP);
+app.listen(3000, function () {
+    console.log('Example app listening on port 3000!')
+});
+
+//PROD
+
+
+//app.listen(process.env.PORT, process.env.IP);
 
