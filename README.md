@@ -68,6 +68,10 @@ Testing is done with Jest. To run test, use the command
 * [Webpack](https://webpack.js.org/) - Front-end built tool
 * [Express](https://expressjs.com/) - NodeJS Back-end server
 
+## Deployed on
+
+* [Heroku](https://www.heroku.com/) at [Text Analyzer](https://nlp-text-analyzer.herokuapp.com/)
+
 ## Authors
 
 * [Farhan Kiyani](https://github.com/farhan2742)
